@@ -4,12 +4,22 @@
     <title>CopyToClipboard</title>
 </head>
 <body>
+<h1 id="message_english">Text Copied. You might close this tab now.</h1>
+<h1 id="message_chinese">文字已複製，你現在可以關閉這個分頁</h1>
 <script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    navigator.clipboard.writeText(atob(urlParams.get('content')));
+    function copyToClipboard() {
+        if (navigator.userAgent.match(/safari/i)) {
+            document.getElementById("message_english").innerHTML = "It seems like you are using safari. Please use Chrome or Firefox instead to copy the text.";
+            document.getElementById("message_chinese").innerHTML = "你使用的是safari，請使用 Chrome 或 Firefox 來正常複製文字";
+            return;
+        }
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        navigator.clipboard.writeText(atob(urlParams.get('content')));
+    }
+
+    copyToClipboard();
 </script>
-<h1>Text Copied. You might close this tab now.</h1>
-<h1>文字已複製，你現在可以關閉這個分頁</h1>
 </body>
 </html>
