@@ -1,4 +1,4 @@
-# CopyToCilpboard
+# CopyToClipboard
 A simple frontend app to copy something into user's cilpboard.
 
 # How to use
