@@ -7,9 +7,9 @@
 <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    navigator.clipboard.writeText(urlParams.get('content'));
+    navigator.clipboard.writeText(atob(urlParams.get('content')));
 </script>
 <h1>Text Copied. You might close this tab now.</h1>
-<h1>文字已複製，你現在可以關閉這個分頁。</h1>
+<h1>文字已複製，你現在可以關閉這個分頁</h1>
 </body>
 </html>
